@@ -131,11 +131,11 @@ namespace HR_Management.Controllers
                 for (int i = 0; i < monthsGap/3; i++)
                 {
                     currentSalary *= rise;
+                    employee.History += ","+DateTime.Now.ToString("dd-MM-yyyy")+","+currentSalary;
                 }
             }
             employee.LastRevision = DateTime.Now;
             employee.Salary = currentSalary;
-            employee.History += ","+DateTime.Now.ToString("dd-MM-yyyy")+","+currentSalary;
             await db.SaveChangesAsync();
             return await Task.Run(() => RedirectToAction("Index"));
         }
