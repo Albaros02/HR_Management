@@ -1,0 +1,53 @@
+@model HR_Management.Models.UpdateEmployeeViewModel
+@{
+}
+
+<h1>Edit Employee</h1>
+<form method="post" action="View" class="mt-5">
+    <div class="mb-3">
+        <label for="" class="form-label">ID</label>
+        <input type="text" class="form-control" asp-for="Id" readonly>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Last Name</label>
+        <input type="text" class="form-control" asp-for="LastName">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Email</label>
+        <input type="text" class="form-control" asp-for="Email">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Personal Address</label>
+        <input type="text" class="form-control" asp-for="PersonalAddress">
+    </div><div class="mb-3">
+        <label for="" class="form-label">Phone</label>
+        <input type="text" class="form-control" asp-for="Phone">
+    </div><div class="mb-3">
+        <label for="" class="form-label">First Day</label>
+        <input type="date" class="form-control" asp-for="LastRevision">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Role</label>
+        <input type="text" class="form-control" asp-for="Role">
+    </div>
+    @* <div class="mb-3">
+        <label for="" class="form-label">Role</label>
+        <select class="form-control" name="" id="" asp-for="Role">
+            <option value="Worker">Worker</option>
+            <option value="Specialist">Specialist</option>
+            <option value="Manager">Manager</option>
+        </select>
+    </div> *@
+    <div class="mb-3">
+
+        <label for="" class="form-label">Salary</label>
+        <input type="text" class="form-control" asp-for="Salary">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" asp-action="ShowHistory" asp-controller="Employees" >History</button>
+    <button type="submit" class="btn btn-danger" asp-action="Delete" asp-controller="Employees" >Delete</button>
+</form>

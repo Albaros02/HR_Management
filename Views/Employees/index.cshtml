@@ -1,0 +1,39 @@
+@model List<HR_Management.Models.Domain.Employee>
+@{
+}
+
+<h1>Employees</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>PersonalAddress</th>
+            <th>Phone</th>
+            <th>FirstDay</th>
+            <th>Role</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+        <tr>
+            <td>@employee.Id</td>
+            <td>@employee.Name</td>
+            <td>@employee.LastName</td>
+            <td>@employee.Email</td>
+            <td>@employee.PersonalAddress</td>
+            <td>@employee.Phone</td>
+            <td>@employee.LastRevision</td>
+            <td>@employee.Role</td>
+            <td>@employee.Salary</td>    
+            <td><a href='Employees/View/@employee.Id'>View</a></td>
+            <td><a href='Employees/DoRevision/@employee.Id'>Revision</a></td>
+        </tr>
+
+        }
+    </tbody>
+</table>

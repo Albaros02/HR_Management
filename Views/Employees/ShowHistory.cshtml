@@ -1,0 +1,22 @@
+@model List<(float, string)> 
+@{
+}
+<h1>History</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Salary</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+        <tr>
+            <td>@employee.Item1</td>
+            <td>@employee.Item2</td>
+        </tr>
+
+        }
+    </tbody>
+</table>
