@@ -14,17 +14,21 @@ namespace HR_Management.Controllers
             this.db = db;
         }
         [HttpGet]
+        [Route("[controller]")]
         public async Task<IActionResult> Index()
         {
             var employees = await db.Employees.ToListAsync();
             return View(employees); 
         }
         [HttpGet]
+        [Route("[controller]/create")]
         public IActionResult Add()
         {
             return View();
         }
         [HttpPost]
+        [Route("[controller]/create")]
+        
         public async Task<IActionResult> Add(AddEmployeeViewModel addEmployeeRequest)
         {
             var employee = new Employee()
@@ -46,6 +50,7 @@ namespace HR_Management.Controllers
         }
 
         [HttpGet]
+        [Route("[controller]/View/{id}")]
         public async Task<IActionResult> View(Guid id)
         {
             var employee = await db.Employees.FirstOrDefaultAsync(x => (x.Id == id));
@@ -68,6 +73,7 @@ namespace HR_Management.Controllers
             return await Task.Run(() => View("View",viewModel));
         }
         [HttpPost]
+        [Route("[controller]/View/{id}")]
         public async Task<IActionResult> View(UpdateEmployeeViewModel model)
         {
             var employee = await db.Employees.FindAsync(model.Id);
@@ -92,6 +98,7 @@ namespace HR_Management.Controllers
             return RedirectToAction("Index");
         }
         [HttpPost]
+        [Route("[controller]/View")]
         public async Task<IActionResult> Delete(UpdateEmployeeViewModel model)
         {
             var employee = await db.Employees.FindAsync(model.Id);
@@ -102,6 +109,7 @@ namespace HR_Management.Controllers
             return RedirectToAction("Index");
         }
         [HttpPost]
+        [Route("[controller]/History")]
         public async Task<IActionResult> ShowHistory(UpdateEmployeeViewModel model)
         {
 
@@ -113,6 +121,7 @@ namespace HR_Management.Controllers
         }
 
         [HttpGet]
+        [Route("[controller]/{id}/Revision")]
         public async Task<IActionResult> DoRevision(Guid id)
         {
             var employee = await db.Employees.FirstOrDefaultAsync(x => (x.Id == id));
